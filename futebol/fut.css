@@ -7,15 +7,15 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: url("https://ae01.alicdn.com/kf/HTB16XuUczfguuRjy1zeq6z0KFXan/A-laser-Conjunto-de-Cozinha-Damasco-Facas-Chef-Jap-o-A-o-Inoxid-vel-faca-de.jpg")no-repeat center;
+    background: url("https://www.correiodeminas.com.br/site/wp-content/uploads/2017/04/0.59945500-1426938533202108234297493ae563a450e741087855a9b6d3c7a99e28ec-800x445.jpg")no-repeat center;
     background-size: 100%;
-    color: aqua;
+    color: #effff9;
     background-color: black;
-    text-shadow:2px 2px #ffffff71;
+    text-shadow:2px 2px #00000071;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 p {
     font-size: 28px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .cont {
@@ -34,6 +34,7 @@ p {
 span {
     font-size: 40px;
     cursor: pointer;
+    color: #00be00;
 
 }
 .button {

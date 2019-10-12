@@ -1,6 +1,7 @@
 var spans = document.querySelectorAll('span')
 var pessoas = 0
 
+
 var h2 = document.querySelector('h2')
 
 spans[0].onclick=function () {
