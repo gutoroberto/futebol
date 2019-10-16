@@ -1,5 +1,9 @@
 var spans = document.querySelectorAll('span')
-var pessoas = 0
+// Mudei a variavel pessoas para gols
+var gols = {
+    gol1: 0,
+    gol2: 0,
+}
 
 // Your web app's Firebase configuration
 var firebaseConfig = {
@@ -23,33 +27,36 @@ var ref = firebase.database().ref('/')
 
 // Define evento de quando muda
 ref.on('value', function (snapshot) {
-    pessoas = snapshot.val()
-    h2.innerText = 'Gols: ' + pessoas
-
+    gols = snapshot.val()
+    // Agora pega dos gols
+    h2.innerText = 'Gols: ' + gols.gol1
+    h3.innerText = 'Gols: ' + gols.gol2
 })
 
 var h2 = document.querySelector('h2')
 var h3 = document.querySelector('h3')
 
 spans[0].onclick=function () {
-    if(pessoas >= 5){
+    if(gols.gol1 >= 5){
         h2.innerText = "vencedor"
+        h3.innerText = "perdedor" // Adicionei isso
     }
     else {
-        pessoas++
-        h2.innerText = 'Gols: ' + pessoas
-        ref.set(pessoas)
+        gols.gol1++ // Mudado para gols.gol1
+        h2.innerText = 'Gols: ' + gols.gol1 // Mudado para gols.gol1
+        ref.set(gols)
     }
 }
 
 spans[1].onclick=function () {
-    if(pessoas >= 5) {
-        h3.innerText = 'vencedor'
+    if(gols.gol2 >= 5){
+        h3.innerText = "vencedor"
+        h2.innerText = "perdedor" // Adicionei isso
     }
     else {
-        pessoas++
-        h3.innerText = 'Gols: ' + pessoas
-        ref.set(pessoas)
+        gols.gol2++ // Mudado para gols.gol2
+        h3.innerText = 'Gols: ' + gols.gol2 // Mudado para gols.gol2
+        ref.set(gols)
     }
 }
 
@@ -65,17 +72,8 @@ function reset() {
         gol2: 0,
     })
 
-    // Aqui é o if que vc fez
-    if(pessoas <= "vencedor"){
-        h2.innerText = "Gols: " + pessoas
-        h3.innerText = "Gols: " + pessoas
-        ref.set(pessoas)
-    }
-    else {
-        pessoas=0
-        h2.innerText = 'Gols:' + pessoas
-        h3.innerText = "Gols: " + pessoas
-        ref.set(pessoas)
-    }
+    // Aqui exibe os gols de acordo com o objeto
+    h2.innerText = 'Gols: ' + gols.gol1
+    h3.innerText = 'Gols: ' + gols.gol2
 }
 
