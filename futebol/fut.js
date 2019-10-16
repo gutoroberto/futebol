@@ -25,6 +25,7 @@ var ref = firebase.database().ref('/')
 ref.on('value', function (snapshot) {
     pessoas = snapshot.val()
     h2.innerText = 'Gols: ' + pessoas
+
 })
 
 var h2 = document.querySelector('h2')
@@ -52,7 +53,19 @@ spans[1].onclick=function () {
     }
 }
 
-spans[2].onclick=function () {
+// Aqui eu passo a função reset como uma variável para o
+// onclick
+spans[2].onclick = reset
+
+// Função reset com nome
+function reset() {
+    // Aqui reseta o banco de dados
+    ref.set({
+        gol1: 0,
+        gol2: 0,
+    })
+
+    // Aqui é o if que vc fez
     if(pessoas <= "vencedor"){
         h2.innerText = "Gols: " + pessoas
         h3.innerText = "Gols: " + pessoas
@@ -65,5 +78,4 @@ spans[2].onclick=function () {
         ref.set(pessoas)
     }
 }
-    
 
