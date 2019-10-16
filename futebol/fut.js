@@ -28,10 +28,11 @@ ref.on('value', function (snapshot) {
 })
 
 var h2 = document.querySelector('h2')
+var h3 = document.querySelector('h3')
 
 spans[0].onclick=function () {
-    if(pessoas >= 15){
-        h2.innerText = "lotado"
+    if(pessoas >= 5){
+        h2.innerText = "vencedor"
     }
     else {
         pessoas++
@@ -41,14 +42,28 @@ spans[0].onclick=function () {
 }
 
 spans[1].onclick=function () {
-    if(pessoas <= 0) {
-        h2.innerText = 'limite minimo'
+    if(pessoas >= 5) {
+        h3.innerText = 'vencedor'
     }
     else {
-        pessoas--
-        h2.innerText = 'Gols: ' + pessoas
+        pessoas++
+        h3.innerText = 'Gols: ' + pessoas
         ref.set(pessoas)
     }
 }
 
+spans[2].onclick=function () {
+    if(pessoas <= "vencedor"){
+        h2.innerText = "Gols: " + pessoas
+        h3.innerText = "Gols: " + pessoas
+        ref.set(pessoas)
+    }
+    else {
+        pessoas=0
+        h2.innerText = 'Gols:' + pessoas
+        h3.innerText = "Gols: " + pessoas
+        ref.set(pessoas)
+    }
+}
+    
 
