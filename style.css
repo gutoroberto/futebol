@@ -18,7 +18,7 @@ p {
     font-size: 28px;
 }
 
-.cont {
+.app {
     display: flex;
     flex-flow: column;
     align-items: center;
