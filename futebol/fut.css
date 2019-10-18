@@ -33,23 +33,40 @@ p {
 .cont > * {
     margin-top: 0px;
 }
-span {
-    display: flex;
-    justify-items: center;
-    font-size: 40px;
-    cursor: pointer;
+
+.titulo {
     color: #00be00;
-    
+    transition: color .5s ease-out;
 }
-.button {
+
+span {
+    font-size: 40px;
+}
+
+.gol, .faltas {
+    cursor: pointer;
+}
+
+.row {
     display: flex;
     justify-content: space-between;
     width: 80%;
    
 }
-#reset{
+
+.column {
     display: flex;
-    justify-content:flex-end;
-    color:aqua;
-   
+    flex-direction: column;
+}
+
+.vitoria {
+    color: blue;
+}
+
+.derrota {
+    color: red;
+}
+
+.faltas, .titulo, .gol {
+    user-select: none;
 }
